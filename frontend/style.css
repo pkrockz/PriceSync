@@ -1,0 +1,151 @@
+/* ===== Base ===== */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f2f4f8;
+  margin: 0;
+  padding: 40px;
+  color: #222;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+/* ===== Containers ===== */
+#auth, #app {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* ===== Auth ===== */
+#auth input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#auth button {
+  padding: 10px 14px;
+  margin-top: 10px;
+  border: none;
+  background: #0066ff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#auth button:hover {
+  background: #0052cc;
+}
+
+/* ===== Admin Panel ===== */
+#admin-panel {
+  background: #f9f9ff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-left: 4px solid #0066ff;
+}
+
+#admin-panel input {
+  margin: 5px 0;
+  padding: 8px;
+  width: 100%;
+}
+
+/* ===== Products ===== */
+#products {
+  margin-top: 20px;
+}
+
+#products > div {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+#products b {
+  font-size: 16px;
+}
+
+.price {
+  color: #0a7a00;
+  font-weight: bold;
+}
+
+.stock {
+  font-weight: bold;
+}
+
+/* ===== Buttons ===== */
+button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button[disabled] {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Order button */
+button[onclick*="placeOrder"] {
+  background: #28a745;
+  color: white;
+}
+
+/* Update button */
+button[onclick*="updateProduct"] {
+  background: #f0ad4e;
+  color: white;
+}
+
+/* Delete button */
+button[onclick*="deleteProduct"] {
+  background: #d9534f;
+  color: white;
+}
+
+/* Logout */
+button[onclick*="logout"] {
+  background: #444;
+  color: white;
+  float: right;
+}
+
+/* ===== Inputs inside product cards ===== */
+#products input {
+  width: 80px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+/* ===== Mobile friendly ===== */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  #auth, #app {
+    padding: 15px;
+  }
+
+  #products > div {
+    padding: 10px;
+  }
+}

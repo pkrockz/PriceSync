@@ -1,0 +1,24 @@
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const connectDB = require("./config/mongo");
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+connectDB();
+
+app.get("/", (req, res) => {
+  res.send("PriceSync backend running");
+});
+
+const productRoutes = require("./routes/products");
+app.use("/products", productRoutes);
+
+const orderRoutes = require("./routes/orders");
+app.use("/orders", orderRoutes);
+
+app.listen(process.env.PORT, () => {
+  console.log("Server running on port", process.env.PORT);
+});
