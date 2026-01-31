@@ -4,7 +4,14 @@ const cors = require("cors");
 const connectDB = require("./config/mongo");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://pricesync-eecb8.web.app",
+    "https://pricesync-eecb8.firebaseapp.com"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 connectDB();

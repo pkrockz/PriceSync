@@ -13,9 +13,7 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.database();
 const auth = firebase.auth();
-const API = window.location.hostname === "localhost"
-  ? "http://localhost:5000"
-  : "https://https://pricesync-production.up.railway.app";
+const API = "http://maglev.proxy.rlwy.net:43475";
 
 // AUTH
 
