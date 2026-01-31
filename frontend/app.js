@@ -15,7 +15,7 @@ const db = firebase.database();
 const auth = firebase.auth();
 const API = window.location.hostname === "localhost"
   ? "http://localhost:5000"
-  : "https://YOUR_BACKEND_URL";
+  : "https://https://pricesync-production.up.railway.app";
 
 // AUTH
 
