@@ -13,7 +13,7 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.database();
 const auth = firebase.auth();
-const API = "http://maglev.proxy.rlwy.net:43475";
+const API = "https://pricesync-production.up.railway.app";
 
 // AUTH
 
@@ -206,17 +206,16 @@ function attachRealtimeListeners() {
 }
 
 // AUTH STATE 
-
 auth.onAuthStateChanged(user => {
+  const header = document.getElementById("auth-header");
+
   if (user) {
+    header.style.display = "none";
     document.getElementById("auth").style.display = "none";
     document.getElementById("app").style.display = "block";
-
-    const adminPanel = document.getElementById("admin-panel");
-    if (adminPanel) adminPanel.style.display = isAdmin(user) ? "block" : "none";
-
     loadProducts();
   } else {
+    header.style.display = "block";
     document.getElementById("auth").style.display = "block";
     document.getElementById("app").style.display = "none";
     listenersAttached = false;

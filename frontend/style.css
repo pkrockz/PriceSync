@@ -1,151 +1,242 @@
-/* ===== Base ===== */
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --accent: #38bdf8;
+  --muted: #94a3b8;
+  --text: #e5e7eb;
+  --danger: #ef4444;
+  --success: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f2f4f8;
   margin: 0;
-  padding: 40px;
-  color: #222;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: var(--text);
+  min-height: 100vh;
 }
 
-h1, h2, h3 {
-  margin-top: 0;
+/* AUTH */
+#auth {
+  max-width: 380px;
+  margin: 12vh auto;
+  background: var(--card);
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.4);
 }
 
-/* ===== Containers ===== */
-#auth, #app {
-  max-width: 800px;
-  margin: auto;
-  background: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+#auth h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
-/* ===== Auth ===== */
 #auth input {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: #020617;
+  color: var(--text);
 }
 
 #auth button {
-  padding: 10px 14px;
+  width: 100%;
   margin-top: 10px;
+  padding: 12px;
   border: none;
-  background: #0066ff;
-  color: white;
-  border-radius: 4px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
   cursor: pointer;
 }
 
 #auth button:hover {
-  background: #0052cc;
+  opacity: .9;
 }
 
-/* ===== Admin Panel ===== */
-#admin-panel {
-  background: #f9f9ff;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-left: 4px solid #0066ff;
+/* DASHBOARD */
+#app {
+  padding: 20px 30px;
 }
 
-#admin-panel input {
-  margin: 5px 0;
-  padding: 8px;
-  width: 100%;
+#app h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  letter-spacing: .5px;
 }
 
-/* ===== Products ===== */
 #products {
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
+/* CARD */
 #products > div {
-  background: #fafafa;
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 6px;
-  margin-bottom: 15px;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  transition: transform .2s ease;
 }
 
-#products b {
-  font-size: 16px;
+#products > div:hover {
+  transform: translateY(-4px);
 }
 
 .price {
-  color: #0a7a00;
-  font-weight: bold;
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .stock {
-  font-weight: bold;
+  color: var(--success);
+  font-weight: 600;
 }
 
-/* ===== Buttons ===== */
-button {
-  padding: 6px 10px;
+#products input {
+  width: 70px;
+  padding: 6px;
   margin-top: 8px;
-  margin-right: 6px;
+  background: #020617;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  color: var(--text);
+}
+
+/* BUTTONS */
+#products button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #000;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#products button:hover {
+  opacity: .9;
+}
+
+#products button.delete {
+  background: red;
+  color: white;
+}
+
+#admin-panel button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #000;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#admin-panel button:hover {
+  opacity: .9;
+}
+
+/* LOGOUT */
+#app > button {
+  margin: 40px auto 0;
+  display: block;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  background: #020617;
+  color: var(--text);
+  cursor: pointer;
+  border: 1px solid #1e293b;
+}
+
+#app > button:hover {
+  background: #020617;
+  border-color: var(--accent);
+}
+
+/* ADMIN PANEL */
+#admin-panel {
+  max-width: 900px;
+  margin: 30px auto;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+#admin-panel h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.admin-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.admin-form input {
+  padding: 10px;
+  background: #020617;
+  border: none;
+  border-radius: 8px;
+  color: var(--text);
+}
+
+.admin-form button {
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
 }
 
-button:hover {
-  opacity: 0.9;
+.admin-form button:hover {
+  opacity: .9;
 }
 
-button[disabled] {
-  background: #ccc;
-  cursor: not-allowed;
+#admin-panel input {
+  width: fit-content;
+  padding: 6px;
+  margin-top: 8px;
+  background: #020617;
+  border: none;
+  border-radius: 6px;
+  color: var(--text);
 }
 
-/* Order button */
-button[onclick*="placeOrder"] {
-  background: #28a745;
-  color: white;
+/* AUTH HEADER */
+.auth-header {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: -60px;
 }
 
-/* Update button */
-button[onclick*="updateProduct"] {
-  background: #f0ad4e;
-  color: white;
+.auth-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent);
 }
 
-/* Delete button */
-button[onclick*="deleteProduct"] {
-  background: #d9534f;
-  color: white;
-}
-
-/* Logout */
-button[onclick*="logout"] {
-  background: #444;
-  color: white;
-  float: right;
-}
-
-/* ===== Inputs inside product cards ===== */
-#products input {
-  width: 80px;
-  padding: 5px;
-  margin-top: 5px;
-}
-
-/* ===== Mobile friendly ===== */
-@media (max-width: 600px) {
-  body {
-    padding: 15px;
-  }
-
-  #auth, #app {
-    padding: 15px;
-  }
-
-  #products > div {
-    padding: 10px;
-  }
+.auth-header p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
