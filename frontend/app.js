@@ -13,7 +13,7 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.database();
 const auth = firebase.auth();
-const API = "http://localhost:5000";
+const API = "https://pricesync-production.up.railway.app";
 
 // AUTH
 
