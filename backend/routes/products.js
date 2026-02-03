@@ -56,5 +56,22 @@ router.delete("/:id", async (req, res) => {
   res.json({ message: "Product deleted" });
 });
 
+// Aggregation: Total stock per category
+router.get("/analytics/stock-by-category", async (req, res) => {
+  try {
+    const result = await Product.aggregate([
+      {
+        $group: {
+          _id: "$category",
+          totalStock: { $sum: "$stock" }
+        }
+      }
+    ]);
+
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 module.exports = router;
